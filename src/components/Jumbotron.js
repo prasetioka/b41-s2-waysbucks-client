@@ -1,5 +1,5 @@
 import RectangleTwo from '../img/Rectangle 3.png'
-import React, { Container, Card, } from 'react-bootstrap'
+import React, { Container, Card } from 'react-bootstrap'
 
 function Jumbotron() {
     return (
@@ -16,7 +16,6 @@ function Jumbotron() {
                 </Card>
             </Container>
         </>
-        
     )
 }
 
