@@ -20,15 +20,10 @@ function DropdownAdmin() {
     return(
         <div ref={ref}>
             <Button onClick={handleClick}>Dropdown Test</Button>
-                <Overlay
-                    show={show}
-                    target={target}
-                    placement="bottom-end"
-                    container={ref}
-                    // containerPadding={20}
-                    >
+                <Overlay show={show} target={target} placement="bottom-end" container={ref}> 
                     <Popover id="popover-contained">
                         <Popover.Body>
+                            {/* button add product start */}
                             <Button className="d-flex flex-column justify-content-center bg-white border-0 mb-3">
                                 <div className="d-flex flex-row justify-content-center">
                                     <div className="d-flex flex-column justify-content-center">
@@ -37,6 +32,9 @@ function DropdownAdmin() {
                                     <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Add Product</p>
                                 </div>
                             </Button>
+                            {/* button add product end */}
+
+                            {/* button add toping start */}
                             <Button className="d-flex flex-column justify-content-center bg-white border-0">
                                 <div className="d-flex flex-row justify-content-center">
                                     <div className="d-flex flex-column justify-content-center">
@@ -45,7 +43,11 @@ function DropdownAdmin() {
                                     <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Add Toping</p>
                                 </div>
                             </Button>
+                            {/* button add toping end */}
+
                             <hr/>
+
+                            {/* button logout start */}
                             <Button className="d-flex flex-column justify-content-center bg-white border-0">
                                 <div className="d-flex flex-row justify-content-center">
                                     <div className="d-flex flex-column justify-content-center">
@@ -54,6 +56,7 @@ function DropdownAdmin() {
                                     <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}}>Logout</p>
                                 </div>
                             </Button>
+                            {/* button logout end */}
                         </Popover.Body>
                     </Popover>
                 </Overlay>

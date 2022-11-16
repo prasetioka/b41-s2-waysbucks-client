@@ -10,7 +10,9 @@ function NavBarUser() {
         <>
             <Navbar bg="white" variant="white" className="mt-4">
                 <Container>
-                    <Navbar.Brand href="#home"><Image src={Logo} alt=""/></Navbar.Brand>
+                    <Navbar.Brand href="#home">
+                        <Image src={Logo} alt=""/>
+                    </Navbar.Brand>
 
                     <Nav className="d-flex flex-row justify-content-end">
                         <Stack direction='horizontal' gap={5} className="d-flex flex-row justify-content-end">

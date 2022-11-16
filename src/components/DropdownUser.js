@@ -18,38 +18,38 @@ function DropdownUser() {
 
     return(
         <div ref={ref}>
-                            <Button onClick={handleClick}>Dropdown Test</Button>
-                            <Overlay
-                                show={show}
-                                target={target}
-                                placement="bottom-end"
-                                container={ref}
-                                // containerPadding={20}
-                            >
-                                <Popover id="popover-contained">
-                            
-                                <Popover.Body>
-                                    <Button className="d-flex flex-column justify-content-center bg-white border-0">
-                                        <div className="d-flex flex-row justify-content-center">
-                                            <div className="d-flex flex-column justify-content-center">
-                                                <Image src={ProfileIcon} style={{width:'50%'}}/>
-                                            </div>
-                                            <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Profile</p>
-                                        </div>
-                                    </Button>
-                                    <hr/>
-                                    <Button className="d-flex flex-column justify-content-center bg-white border-0">
-                                        <div className="d-flex flex-row justify-content-center">
-                                            <div className="d-flex flex-column justify-content-center">
-                                                <Image src={LogoutIcon} style={{width:'50%'}}/>
-                                            </div>
-                                            <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}}>Logout</p>
-                                        </div>
-                                    </Button>
-                                </Popover.Body>
-                                </Popover>
-                            </Overlay>
-                        </div>
+            <Button onClick={handleClick}>Dropdown Test</Button>
+                <Overlay show={show} target={target} placement="bottom-end" container={ref}>
+                    <Popover id="popover-contained">
+                        <Popover.Body>
+                            {/* Button profile start */}
+                            <Button className="d-flex flex-column justify-content-center bg-white border-0">
+                                <div className="d-flex flex-row justify-content-center">
+                                    <div className="d-flex flex-column justify-content-center">
+                                        <Image src={ProfileIcon} style={{width:'50%'}}/>
+                                    </div>
+                                    <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Profile</p>
+                                </div>
+                            </Button>
+                            {/* Button profile end */}
+
+                            <hr/>
+
+                            {/* Button logout start */}
+                            <Button className="d-flex flex-column justify-content-center bg-white border-0">
+                                <div className="d-flex flex-row justify-content-center">
+                                    <div className="d-flex flex-column justify-content-center">
+                                        <Image src={LogoutIcon} style={{width:'50%'}}/>
+                                    </div>
+                                    <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}}>Logout</p>
+                                </div>
+                            </Button>
+                            {/* Button logout end */}
+
+                        </Popover.Body>
+                    </Popover>
+                </Overlay>
+        </div>
     )
 }
 

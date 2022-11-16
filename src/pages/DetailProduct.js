@@ -14,7 +14,7 @@ import Toping8 from '../img/detail-product/toping-strawbery-poping.png'
 function DetailProduct() {
     return(
         <>
-            <Container className="d-flex mb-5">
+            <Container className="d-flex mb-5 mt-5">
                 <Stack direction="horizontal" gap={4}>
                     <div className="d-flex justify-content-center">
                         <Image src={Coffee1} style={{width:'450px'}}/>

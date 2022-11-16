@@ -24,59 +24,66 @@ function NavBarDropTest() {
         <>
             <Navbar bg="white" variant="white" className="mt-4">
                 <Container>
-                    <Navbar.Brand href="#home"><img src={Logo} alt=""/></Navbar.Brand>
+                    {/* Logo navbar start */}
+                    <Navbar.Brand href="#home">
+                        <img src={Logo} alt=""/>
+                    </Navbar.Brand>
+                    {/* Logo navbar end */}
+
                     <Nav className="d-flex justify-content-end gap-3">
+
+                        {/* Tombol login start */}
                         <Button style={{width:'100px', color:'#bd0707', fontWeight:'bold', borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} onClick={() => setLoginShow(true)}>Login</Button>
+                        <Login show={loginShow} onHide={() => setLoginShow(false)} />
+                        {/* Tombol login end */}
 
-                        <Login
-                            show={loginShow}
-                            onHide={() => setLoginShow(false)}
-                        />
-                        
+                        {/* Tombol register start */}
                         <Button style={{width:'100px', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}} onClick={() => setRegisterShow(true)}>Register</Button>
+                        <Register show={registerShow} onHide={() => setRegisterShow(false)} />
+                        {/* Tombol register end */}
 
-                        <Register 
-                            show={registerShow}
-                            onHide={() => setRegisterShow(false)}
-                        />
-
+                        {/* Tombol dropdown start */}
                         <div ref={ref}>
                             <Button onClick={handleClick}>Dropdown Test</Button>
-                            <Overlay
-                                show={show}
-                                target={target}
-                                placement="bottom-end"
-                                container={ref}
-                                // containerPadding={20}
-                            >
+                            <Overlay show={show} target={target} placement="bottom-end" container={ref}>
                                 <Popover id="popover-contained">
-                                <Popover.Body>
-                                    <Button className="d-flex flex-column justify-content-center bg-white border-0 mb-3">
-                                        <div className="d-flex flex-row justify-content-center">
-                                            <div className="d-flex flex-column justify-content-center">
-                                                <Image src={AddProductImg} style={{width:'50%'}}/>
+                                    <Popover.Body>
+                                        {/* Tombol add product start */}
+                                        <Button className="d-flex flex-column justify-content-center bg-white border-0 mb-3">
+                                            <div className="d-flex flex-row justify-content-center">
+                                                <div className="d-flex flex-column justify-content-center">
+                                                    <Image src={AddProductImg} style={{width:'50%'}}/>
+                                                </div>
+                                                <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Add Product</p>
                                             </div>
-                                            <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Add Product</p>
-                                        </div>
-                                    </Button>
-                                    <Button className="d-flex flex-column justify-content-center bg-white border-0">
-                                        <div className="d-flex flex-row justify-content-center">
-                                            <div className="d-flex flex-column justify-content-center">
-                                                <Image src={AddTopingImg} style={{width:'50%'}}/>
+                                        </Button>
+                                        {/* Tombol add product end */}
+
+                                        {/* Tombol add toping start */}
+                                        <Button className="d-flex flex-column justify-content-center bg-white border-0">
+                                            <div className="d-flex flex-row justify-content-center">
+                                                <div className="d-flex flex-column justify-content-center">
+                                                    <Image src={AddTopingImg} style={{width:'50%'}}/>
+                                                </div>
+                                                <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Add Toping</p>
                                             </div>
-                                            <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Add Toping</p>
-                                        </div>
-                                    </Button>
-                                    <hr/>
-                                    <Button className="d-flex flex-column justify-content-center bg-white border-0">
-                                        <div className="d-flex flex-row justify-content-center">
-                                            <div className="d-flex flex-column justify-content-center">
-                                                <Image src={LogoutIcon} style={{width:'50%'}}/>
+                                        </Button>
+                                        {/* Tombol add toping end */}
+
+                                        <hr/>
+
+                                        {/* Tombol logout start */}
+                                        <Button className="d-flex flex-column justify-content-center bg-white border-0">
+                                            <div className="d-flex flex-row justify-content-center">
+                                                <div className="d-flex flex-column justify-content-center">
+                                                    <Image src={LogoutIcon} style={{width:'50%'}}/>
+                                                </div>
+                                                <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}}>Logout</p>
                                             </div>
-                                            <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}}>Logout</p>
-                                        </div>
-                                    </Button>
-                                </Popover.Body>
+                                        </Button>
+                                        {/* Tombol logout end */}
+
+                                    </Popover.Body>
                                 </Popover>
                             </Overlay>
                         </div>

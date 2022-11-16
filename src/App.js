@@ -17,11 +17,17 @@ function App() {
     {/* <NavBarUser /> */}
     <Jumbotron />
     <CardMenu />
+    <hr/>
     <DetailProduct />
+    <hr/>
     <ProfilePage />
+    <hr/>
     <MyCart />
+    <hr/>
     <AddProductPage />
+    <hr/>
     <AddTopingPage />
+    <hr/>
     <IncomePage />
   </>
 );
