@@ -25,7 +25,7 @@ function Register(props) {
                     <Button variant="primary" type="submit" style={{backgroundColor:'#bd0707', borderColor: '#bd0707'}} className="py-2 fw-bold fs-5 mb-4 w-100">
                     Register
                     </Button>
-                    <Form.Label className="fs-6 d-flex justify-content-center">Already have an account? Klik Here</Form.Label>
+                    <Form.Label className="fs-5 d-flex justify-content-center">Don't have an account ? Klik Here</Form.Label>
                 </Form>
             </Container>
         </Modal>

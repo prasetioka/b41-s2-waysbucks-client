@@ -19,8 +19,9 @@ function Login(props) {
                     </Form.Group>
 
                     <Button  type="submit" className="py-2 fw-bold fs-5 mb-4 w-100" style={{backgroundColor:'#bd0707', border:'none'}} >
-                        Pay
+                        Login
                     </Button>
+                    <Form.Label className="fs-5 d-flex justify-content-center">Already have an account? Klik Here</Form.Label>
                 </Form>
             </Container>
         </Modal>
