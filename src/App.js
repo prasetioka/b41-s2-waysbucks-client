@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage'
 import MyCart from './pages/MyCart'
 import AddProductPage from './pages/AddProductPage'
 import AddTopingPage from './pages/AddTopingPage'
+import IncomePage from './pages/IncomePage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
     <MyCart />
     <AddProductPage />
     <AddTopingPage />
+    <IncomePage />
   </>
 );
 }
