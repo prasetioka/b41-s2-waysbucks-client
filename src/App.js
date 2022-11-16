@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from './components/Navbar'
+// import NavBarUser from './components/NavbarUser'
 import Jumbotron from './components/Jumbotron'
 import CardMenu from './components/CardMenu'
 import DetailProduct from './pages/DetailProduct'
@@ -13,6 +14,7 @@ function App() {
   return (
   <>
     <NavBar />
+    {/* <NavBarUser /> */}
     <Jumbotron />
     <CardMenu />
     <DetailProduct />

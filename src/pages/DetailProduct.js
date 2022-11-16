@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Image, Button, Stack } from 'react-bootstrap'
-import Logo from '../img/Header.png'
+import Logo from '../img/waysbucks-1.png'
 import Coffee1 from '../img/detail-product/coffee-1.png'
 import Toping1 from '../img/detail-product/toping-bubble-tea.png'
 import Toping2 from '../img/detail-product/toping-mango.png'
