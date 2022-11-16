@@ -13,7 +13,7 @@ function AddTopingPage() {
                         <Form.Control type="text" placeholder="Name Toping" className="mb-4" style={{borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} />
                         <Form.Control type="number" placeholder="Price" className="mb-4" style={{borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} />
                         
-                        <Form.Label className="px-2 py-1 mb-4 text-secondary fw-normal rounded-3" style={{width:'100%', border:'solid', borderWidth:'3px', borderColor:'#bd0707', backgroundColor:'rgb(224,200,200,0.25)'}}>
+                        <Form.Label className="px-2 py-1 mb-4 text-secondary fw-normal rounded-3" style={{width:'100%', border:'solid', borderWidth:'3px', borderColor:'#bd0707', backgroundColor:'rgb(224,200,200,0.25)', cursor:'pointer'}}>
                             <Stack direction="horizontal">
                                 <p className="d-flex flex-column justify-content-center m-0">Photo Product</p>
                                     <Image src={AttachIcon} className="ms-auto"/>
