@@ -6,7 +6,7 @@ import { Button, Container, Image, Row, Col, Stack, Form } from "react-bootstrap
 
 function MyCart() {
     return(
-        <Container>
+        <Container className="mt-3">
             <Row>
                 <Col>
                     <Stack direction='vertical'>
