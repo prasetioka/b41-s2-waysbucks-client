@@ -4,9 +4,10 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 
-function Login(props) {
+function Login({show, onHide, setLoginShow, setRegisterShow}) {
+
     return (
-        <Modal {...props} centered>
+        <Modal show={show} onHide={onHide} centered>
             <Container className="px-5 py-5">
                 <Form>
                     {/* Form email start */}
@@ -28,7 +29,7 @@ function Login(props) {
                     </Button>
                     {/* Tombol login end */}
 
-                    <Form.Label className="fs-5 d-flex justify-content-center">Already have an account? Klik Here</Form.Label>
+                    <Form.Label className="fs-5 d-flex justify-content-center">Already have an account? Klik <span className="ms-1 fw-bold" onClick={() => {setLoginShow(false); setRegisterShow(true)}}>Here</span></Form.Label>
                 </Form>
             </Container>
         </Modal>
