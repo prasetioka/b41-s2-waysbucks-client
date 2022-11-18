@@ -30,7 +30,7 @@ function NavBarUser() {
                     <Nav className="d-flex flex-row justify-content-end">
                         <Stack direction='horizontal' gap={5} className="d-flex flex-row justify-content-end">
                             <Button className="p-0 m-0 bg-transparent border-0">
-                                <Image src={BasketIcon} alt="" />
+                            <Link to="MyCart" ><Image src={BasketIcon} alt="" /></Link>
                             </Button>
                             
                             <div ref={ref}>

@@ -9,6 +9,20 @@ function NavBar() {
     const [loginShow, setLoginShow] = React.useState(false)
     const [registerShow, setRegisterShow] = React.useState(false)
 
+    const UserData = localStorage.getItem("USER_DATA")
+    const DataUser = JSON.parse(UserData)
+    const array = []
+
+    const LoginUser = (user) => {
+        DataUser.forEach((element) => {
+            if (user.email === element.email && user.password === element.password) {
+                array.push(element); localStorage.setItem("DATA_LOGIN", JSON.stringify(array))
+            } else {
+                console.log("can't login")
+            }
+        })
+    }
+
     return(
         <>
             <Navbar bg="white" variant="white" className="mt-4">
@@ -23,7 +37,7 @@ function NavBar() {
 
                         {/* Tombol login start */}
                         <Button style={{width:'100px', color:'#bd0707', fontWeight:'bold', borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} onClick={() => setLoginShow(true)}>Login</Button>
-                        <Login show={loginShow} onHide={() => setLoginShow(false)} setLoginShow={setLoginShow} setRegisterShow={setRegisterShow}/>
+                        <Login show={loginShow} onHide={() => setLoginShow(false)} setLoginShow={setLoginShow} setRegisterShow={setRegisterShow} LoginUser={LoginUser}/>
                         {/* Tombol login end */}
 
                         {/* Tombol register start */}

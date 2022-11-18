@@ -62,14 +62,15 @@ function MyCart() {
                         </Col>
                         <Col className="d-flex flex-column justify-content-center">
                             <div className="d-flex flex-column justify-content-center">
-                                <Button style={{backgroundColor:'rgb(224,200,200,0.25)', color:'#bd0707', borderColor:'#bd0707', height:'150px', borderWidth:'3px'}}>
+                                <Form.Label className="btn d-flex flex-column justify-content-center" style={{backgroundColor:'rgb(224,200,200,0.25)', color:'#bd0707', borderColor:'#bd0707', height:'150px', borderWidth:'3px'}}>
                                     <div className="d-flex flex-column justify-content-center">
                                         <div> 
                                             <Image src={AttachImg} />
                                         </div>
                                         Atache of Transaction
                                     </div>
-                                </Button>
+                                    <Form.Control type="file" style={{width:'100%', borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} hidden/>
+                                </Form.Label>
                             </div>  
                         </Col>
                     </Row>

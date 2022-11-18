@@ -5,7 +5,9 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 
 function Register({show, onHide, setLoginShow, setRegisterShow}) {
-    
+        const user = []
+        const DataUser = localStorage.getItem("USER_DATA")
+        const UserData = JSON.parse(DataUser)
         const [state, setState] = useState({
             fullname: "",
             email: "",
@@ -14,7 +16,18 @@ function Register({show, onHide, setLoginShow, setRegisterShow}) {
 
         const handleOnSubmit = (e) => {
             e.preventDefault()
-            console.log(state)
+            if (UserData == null) {
+                user.push(state)
+                localStorage.setItem("USER_DATA", JSON.stringify(user))
+            } else {
+                UserData.forEach((element) => {
+                    user.push(element)
+                })
+                user.push(state)
+                localStorage.setItem("USER_DATA", JSON.stringify(user))
+            }
+            setLoginShow(true)
+            setRegisterShow(false)
         }
     
     return (
@@ -38,7 +51,7 @@ function Register({show, onHide, setLoginShow, setRegisterShow}) {
                     <Button variant="primary" type="submit" style={{backgroundColor:'#bd0707', borderColor: '#bd0707'}} className="py-2 fw-bold fs-5 mb-4 w-100">
                     Register
                     </Button>
-                    <Form.Label className="fs-5 d-flex justify-content-center">Don't have an account ? Klik <span className="ms-1 fw-bold" onClick={() => {setLoginShow(true); setRegisterShow(false)}}>Here</span></Form.Label>
+                    <Form.Label className="fs-5 d-flex justify-content-center">Don't have an account ? Klik <span className="ms-1 fw-bold" style={{color:'#bd0707', cursor:'pointer'}} onClick={() => {setLoginShow(true); setRegisterShow(false)}}>Here</span></Form.Label>
                 </Form>
             </Container>
         </Modal>
