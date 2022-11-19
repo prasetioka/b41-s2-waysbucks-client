@@ -13,7 +13,7 @@ function MyCart() {
                         <p className="fs-3 fw-bold" style={{color:'#bd0707'}}>My Cart</p>
                         <p className="fs-5 mb-0" style={{color:'#bd0707'}}>Review Your Order</p>
                     </Stack>
-                    <hr/>
+                    <hr style={{borderTop:'1px solid #974A4A'}}/>
                     <Stack direction='horizontal' className="mb-3">
                         <Image src={Coffee1} style={{width:"8%"}}/>
                         <div className="ms-3">
@@ -40,10 +40,10 @@ function MyCart() {
                             </div>
                         </div>
                     </Stack>
-                    <hr/>
+                    <hr style={{borderTop:'1px solid #974A4A'}}/>
                     <Row>
                         <Col>
-                            <hr/>
+                            <hr style={{borderTop:'1px solid #974A4A'}}/>
                             <Stack direction='vertical'>
                                 <Stack direction='horizontal'>
                                     <p>Subtotal</p>
@@ -53,7 +53,7 @@ function MyCart() {
                                     <p>Qty</p>
                                     <p className='ms-auto'>2</p>
                                 </Stack>
-                                <hr/>
+                                <hr style={{borderTop:'1px solid #974A4A'}}/>
                                 <Stack direction='horizontal'>
                                     <p>Total</p>
                                     <p className='ms-auto'>69.000</p>

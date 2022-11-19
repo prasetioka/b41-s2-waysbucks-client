@@ -12,7 +12,7 @@ function Login({show, onHide, setLoginShow, setRegisterShow, LoginUser}) {
     })
 
     const handleOnSubmit = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         LoginUser(user)
     }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container, Image, Button, Row, Col } from 'react-bootstrap'
-import Logo from '../img/waysbucks-1.png'
-import Coffee1 from '../img/detail-product/coffee-1.png'
+import Menu1 from '../img/menu-1.png'
 import Toping1 from '../img/toppings/bubble-tea-gelatin.png'
 import Toping2 from '../img/toppings/manggo.png'
 import Toping3 from '../img/toppings/green-coconut.png'
@@ -10,6 +9,7 @@ import Toping5 from '../img/toppings/bill-berry-boba.png'
 import Toping6 from '../img/toppings/kiwi-popping-pearl.png'
 import Toping7 from '../img/toppings/matcha-cantaloupe.png'
 import Toping8 from '../img/toppings/strawberry-popping.png'
+import Menus from '../components/Menu'
 
 function DetailProduct() {
     return(
@@ -17,12 +17,13 @@ function DetailProduct() {
             <Container className="mt-5 mb-5">
                 <Row className="d-flex justify-content-center">
                     <Col sm={4}>
+                    
                         <div className="d-flex justify-content-end mt-3 me-3">
                             <div className="d-flex justify-content-center">
-                            <Image src={Coffee1} style={{width:'350px'}}/>
-                            <Image src={Logo} style={{position:'absolute', width:'80px', paddingTop:'280px'}}/>
+                            <Image src={Menu1} style={{width:'330px'}}/>
                             </div>
                         </div>
+                   
                     </Col>
                     <Col sm={5} className="pe-3 ">
                         <p className="fs-1 fw-bold mb-0" style={{color:'#bd0707'}}>Ice Coffee Palm Sugar</p>

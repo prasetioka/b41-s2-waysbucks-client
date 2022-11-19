@@ -12,6 +12,7 @@ function Register({show, onHide, setLoginShow, setRegisterShow}) {
             fullname: "",
             email: "",
             password: "",
+            status: "user"
         })
 
         const handleOnSubmit = (e) => {

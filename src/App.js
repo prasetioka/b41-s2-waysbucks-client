@@ -15,8 +15,8 @@ function App() {
   return (
       <Router>
         <Navbar/>
-        <NavbarAdmin />
-        <NavbarUser />
+        {/* <NavbarAdmin /> */}
+        {/* <NavbarUser /> */}
         <Routes>
             <Route exact path='/' element={<HomePage />} />
             <Route exact path='/AddProductPage' element={<AddProductPage />} />
