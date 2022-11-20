@@ -2,16 +2,6 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Container, Image, Button, Row, Col } from 'react-bootstrap'
 import Checked from '../img/green-check.svg'
-import Menu1 from '../img/menu-1.png'
-import Toping1 from '../img/toppings/bubble-tea-gelatin.png'
-import Toping2 from '../img/toppings/manggo.png'
-import Toping3 from '../img/toppings/green-coconut.png'
-import Toping4 from '../img/toppings/boba-manggo.png'
-import Toping5 from '../img/toppings/bill-berry-boba.png'
-import Toping6 from '../img/toppings/kiwi-popping-pearl.png'
-import Toping7 from '../img/toppings/matcha-cantaloupe.png'
-import Toping8 from '../img/toppings/strawberry-popping.png'
-import Menus from '../components/Menu'
 
 function DetailProduct() {
     const { productid } = useParams()
@@ -59,7 +49,7 @@ function DetailProduct() {
                                 return(
                                 <Col className="d-flex flex-column justify-content-center mb-3" >
                                     <div className="d-flex justify-content-center" onClick={() => handleChecked(toping.topingid, toping.price)}>
-                                        <Image src={toping.photo} alt="" style={{width:'60px'}} />
+                                        <Image src={toping.photo} alt="" style={{width:'60px', cursor:'pointer'}} />
                                         {topingCheck.filter((element) => element === toping.topingid)[0] === toping.topingid ? (<Image src={Checked} className="position-absolute ms-4" />
                                         ) : (<></>)}
                                     </div>
@@ -70,7 +60,7 @@ function DetailProduct() {
                     
                         <div className="d-flex justify-content-between mt-5 mb-5">
                             <p className="fs-5 fw-bold mb-0" style={{color:'#bd0707'}}>Total</p>
-                            <p className="fs-5 fw-bold mb-0" style={{color:'#bd0707'}}>{Products[productid].price + topingPrice}</p>
+                            <p className="fs-5 fw-bold mb-0" style={{color:'#bd0707'}}>Rp.{Products[productid].price + topingPrice}</p>
                         </div>
                         <Button style={{width:'100%', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}}>Add Cart</Button>
                     

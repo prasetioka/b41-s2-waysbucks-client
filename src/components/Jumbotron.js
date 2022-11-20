@@ -6,10 +6,10 @@ import JumbotronCard from '../img/Jumbotron.png'
 function Jumbotron() {
     return (
         <>
-            <Container className="d-flex mt-4 p-0">
+            <Container className="d-flex mt-5 p-0">
                 <Card className="d-flex justify-content-center mx-5 border-0 ps-5" style={{width:'80%'}}>
                     
-                    <Card.Img src={JumbotronCard} className=""/>
+                    <Card.Img src={JumbotronCard} />
                     
                     <Card.Img fluid src={RectangleTwo} style={{left:'600px', position:'absolute', width:'45%'}}/>
                     

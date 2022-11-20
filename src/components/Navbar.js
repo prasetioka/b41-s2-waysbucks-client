@@ -1,6 +1,6 @@
 import Logo from '../img/Header.png'
 import React from 'react';
-import { Link,  useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Container, Nav, Navbar, Button, Image } from 'react-bootstrap'
 import Login from './Login'
 import Register from './Register'
@@ -31,7 +31,7 @@ function NavBar() {
     const Logout = () => {
         isLogin.pop()
         localStorage.setItem("DATA_LOGIN", JSON.stringify(isLogin))
-        Navigate("/")
+        Navigate('/')
     }
 
     return(
@@ -39,9 +39,7 @@ function NavBar() {
             <Navbar bg="white" variant="white" className="mt-4">
                 <Container>
                     {/* Logo navbar start */}
-                    <Link to="/">
-                        <Image src={Logo} alt=""/>
-                    </Link>
+                    <Image Navigate={() => {Navigate('/')}} src={Logo} alt="" style={{cursor:'pointer'}}/>
                     {/* Logo navbar end */}
 
                     <Nav className="d-flex justify-content-end gap-3">
@@ -62,7 +60,7 @@ function NavBar() {
 
                             {/* Tombol register start */}
                             <Button  style={{width:'100px', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}} onClick={() => setRegisterShow(true)}>Register</Button>
-                            <Register show={registerShow} onHide={() => setRegisterShow(false)} setLoginShow={setLoginShow} setRegisterShow={setRegisterShow}/>
+                            <Register show={registerShow} onHide={() => setRegisterShow(false)} setLoginShow={setLoginShow} setRegisterShow={setRegisterShow} />
                             {/* Tombol register end */}
                             </>
                         ) }

@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { Container, Nav, Navbar, Image, Stack, Button, Overlay, Popover } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import Logo from '../img/Header.png'
-import BasketIcon from '../img/shopping-basket.png'
+import { Nav, Image, Stack, Button, Overlay, Popover } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import ProfileAdmin from '../img/asus-chan.jpg'
 import AddTopingImg from '../img/add-toping.png'
 import AddProductImg from '../img/add-product.png'
@@ -11,8 +9,12 @@ import LogoutIcon from '../img/logout 1.png'
 function NavBarUser({Logout}) {
 
     const [show, setShow] = useState(false);
+
     const [target, setTarget] = useState(null);
+    
     const ref = useRef(null);
+
+    const Navigate = useNavigate()
 
     const handleClick = (event) => {
         setShow(!show);
@@ -32,28 +34,24 @@ function NavBarUser({Logout}) {
                             <Popover id="popover-contained">
                                 <Popover.Body>
                                     {/* button add product start */}
-                                    <Button className="d-flex flex-column justify-content-center bg-white border-0 mb-3">
-                                    <Link to="/AddProductPage" className="text-decoration-none">
+                                    <Button onClick={() => {Navigate('/AddProductPage')}} className="d-flex flex-column justify-content-center bg-white border-0 mb-3">
                                         <div className="d-flex flex-row justify-content-center">
                                             <div className="d-flex flex-column justify-content-center">
                                                 <Image src={AddProductImg} style={{width:'50%'}}/>
                                             </div>
                                             <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}} >Add Product</p>
                                         </div>
-                                    </Link>
                                     </Button>
                                     {/* button add product end */}
 
                                     {/* button add toping start */}
-                                    <Button className="d-flex flex-column justify-content-center bg-white border-0">
-                                    <Link to="/AddTopingPage" className="text-decoration-none">
+                                    <Button onClick={() => {Navigate('/AddTopingPage')}} className="d-flex flex-column justify-content-center bg-white border-0">
                                         <div className="d-flex flex-row justify-content-center">
                                             <div className="d-flex flex-column justify-content-center">
                                                 <Image src={AddTopingImg} style={{width:'50%'}}/>
                                             </div>
                                             <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}}>Add Toping</p>
                                         </div>
-                                    </Link>
                                     </Button>
                                     {/* button add toping end */}
                                 </Popover.Body>
@@ -68,7 +66,7 @@ function NavBarUser({Logout}) {
                                     <p className="d-flex flex-column justify-content-center m-0 fw-bold" style={{color:'#bd0707'}}>Logout</p>
                                 </div>
                                 </Button>
-                                            {/* button logout end */}
+                                {/* button logout end */}
                                 </Popover.Body>
                             </Popover>
                         </Overlay>

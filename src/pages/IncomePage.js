@@ -5,12 +5,12 @@ import CancelImg from '../img/cancel.png'
 
 function IncomePage() {
     return(
-        <Container className="mb-5">
+        <Container className="mb-5 mt-5">
             <Row>
                 <p className="fs-3 mb-4 fw-bold" style={{color:'#bd0707'}}>Income Transaction</p>
             </Row>
             <Row className="d-flex flex-row justify-content-center">
-                <Table bordered hover style={{textAlign:'center', width:'90%'}}>
+                <Table bordered hover style={{textAlign:'center', width:'90%', borderColor:'#828282'}}>
                     <thead style={{backgroundColor:'#E5E5E5'}}>
                         <tr>
                             <th>No</th>
