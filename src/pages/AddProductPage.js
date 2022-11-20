@@ -1,7 +1,6 @@
 import React from "react"
 import { useState } from 'react'
 import { Form, Row, Col, Image, Container, Button, Stack} from 'react-bootstrap'
-import Menu1 from '../img/detail-product/coffee-2.png'
 import AttachIcon from '../img/attach-icon.png'
 
 
@@ -10,20 +9,26 @@ function AddProductPage() {
         const DataProduct = localStorage.getItem("PRODUCT_DATA")
         const ProductData = JSON.parse(DataProduct)
         const [state, setState] = useState({
+            productid: 0,
             productname: "",
             price: "",
             photo: ""
         })
 
+
         const handleOnSubmit = (e) => {
-            e.preventDefault()
+            // e.preventDefault()
             if (ProductData == null) {
+                state.price = parseInt(state.price)
                 product.push(state)
                 localStorage.setItem("PRODUCT_DATA", JSON.stringify(product))
             } else {
-                ProductData.forEach((element) => {
-                    product.push(element)
-                })
+                for (let i = 0; i < ProductData.length;i++) {
+                    product.push(ProductData[i])
+                }
+                state.productid = ProductData.length
+                
+                state.price = parseInt(state.price)
                 product.push(state)
                 localStorage.setItem("PRODUCT_DATA", JSON.stringify(product))
             }
