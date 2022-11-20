@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from 'react'
 import { Form, Row, Col, Image, Container, Button, Stack} from 'react-bootstrap'
 import AttachIcon from '../img/attach-icon.png'
-
+// import Navbar from '../components/Navbar'
 
 function AddProductPage() {
     const product = []
@@ -14,7 +14,6 @@ function AddProductPage() {
             price: "",
             photo: ""
         })
-
 
         const handleOnSubmit = (e) => {
             // e.preventDefault()
@@ -35,6 +34,8 @@ function AddProductPage() {
         }
 
     return(
+            <>
+            {/* <Navbar/> */}
             <Container className="mt-5 mb-5">
                 <Row>
                     <Col className="d-flex flex-column justify-content-center">
@@ -72,6 +73,8 @@ function AddProductPage() {
                     </Col>
                 </Row>
             </Container>  
+            </>
+            
     )
 }
 

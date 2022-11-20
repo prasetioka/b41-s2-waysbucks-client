@@ -5,6 +5,7 @@ import CancelImg from '../img/cancel.png'
 
 function IncomePage() {
     return(
+        <>
         <Container className="mb-5 mt-5">
             <Row>
                 <p className="fs-3 mb-4 fw-bold" style={{color:'#bd0707'}}>Income Transaction</p>
@@ -78,6 +79,8 @@ function IncomePage() {
                 </Table>
             </Row>
         </Container>
+        </>
+        
     )
 }
 

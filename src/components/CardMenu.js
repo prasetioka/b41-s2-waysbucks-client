@@ -14,7 +14,7 @@ function CardMenu() {
                 <Card.Text className="fs-2 fw-bold" style={{color:'#bd0707'}}>Let's Order</Card.Text>
             </Container>
             <Container className="mb-5">
-                <Row>
+                <Row md={4}>
                     {Products.map((product) => (
                         <Col>
                             <Card className="mt-5 d-flex justify-content-center rounded-4 border-0" style={{backgroundColor:'#F6DADA'}}>

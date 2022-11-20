@@ -2,9 +2,12 @@ import React from 'react'
 import FotoProfile from '../img/profile-page/Rectangle 12.png'
 import { Container, Card, Row, Col } from 'react-bootstrap'
 import Transaction from '../components/Transaction'
+// import Navbar from '../components/Navbar'
 
 function ProfilePage() {
     return(
+        <>
+        {/* <Navbar /> */}
         <Container>
             <Row>
                 <Col sm={5} className='d-flex flex-column p-3' style={{border:'0'}}>  
@@ -25,6 +28,8 @@ function ProfilePage() {
                 </Col>
             </Row>
         </Container>
+        </>
+        
     )
 }
 

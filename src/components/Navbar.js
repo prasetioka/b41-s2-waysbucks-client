@@ -1,6 +1,6 @@
 import Logo from '../img/Header.png'
 import React from 'react';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Container, Nav, Navbar, Button, Image } from 'react-bootstrap'
 import Login from './Login'
 import Register from './Register'
@@ -15,8 +15,9 @@ function NavBar() {
     const DataUser = JSON.parse(UserData)
     const array = []
 
-    const Navigate = useNavigate()
     const isLogin = JSON.parse(localStorage.getItem("DATA_LOGIN"))
+
+    const Navigate = useNavigate()
 
     const LoginUser = (user) => {
         DataUser.forEach((element) => {
@@ -39,7 +40,7 @@ function NavBar() {
             <Navbar bg="white" variant="white" className="mt-4">
                 <Container>
                     {/* Logo navbar start */}
-                    <Image Navigate={() => {Navigate('/')}} src={Logo} alt="" style={{cursor:'pointer'}}/>
+                    <Link to="/"><Image src={Logo} alt="" style={{cursor:'pointer'}}/></Link>
                     {/* Logo navbar end */}
 
                     <Nav className="d-flex justify-content-end gap-3">

@@ -3,9 +3,12 @@ import Coffee1 from "../img/menu-1.png"
 import Bin1 from "../img/bin 1.png"
 import AttachImg from "../img/invoices 1.png"
 import { Button, Container, Image, Row, Col, Stack, Form } from "react-bootstrap"
+// import Navbar from '../components/Navbar'
 
 function MyCart() {
     return(
+        <>
+        {/* <Navbar /> */}
         <Container className="mt-3">
             <Row>
                 <Col>
@@ -87,6 +90,8 @@ function MyCart() {
                 </Col>
             </Row>
         </Container>
+        </>
+        
     )
 }
 
