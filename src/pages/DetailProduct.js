@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Container, Image, Button, Row, Col } from 'react-bootstrap'
 // import Navbar from '../components/Navbar'

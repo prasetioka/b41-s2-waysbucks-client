@@ -5,7 +5,7 @@ import AttachIcon from '../img/attach-icon.png'
 // import Navbar from '../components/Navbar'
 
 function AddProductPage() {
-    const product = []
+        const product = []
         const DataProduct = localStorage.getItem("PRODUCT_DATA")
         const ProductData = JSON.parse(DataProduct)
         const [state, setState] = useState({

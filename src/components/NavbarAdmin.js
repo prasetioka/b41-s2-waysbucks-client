@@ -6,7 +6,7 @@ import AddTopingImg from '../img/add-toping.png'
 import AddProductImg from '../img/add-product.png'
 import LogoutIcon from '../img/logout 1.png'
 
-function NavBarUser({Logout}) {
+function NavBarAdmin({Logout}) {
 
     const [show, setShow] = useState(false);
 
@@ -77,4 +77,4 @@ function NavBarUser({Logout}) {
     )
 }
 
-export default NavBarUser
+export default NavBarAdmin
