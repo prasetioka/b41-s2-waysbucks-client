@@ -8,11 +8,12 @@ function Jumbotron() {
         <>
             <Container className="d-flex mt-5 p-0">
                 <Card className="d-flex justify-content-center mx-5 border-0 ps-5" style={{width:'80%'}}>
-                    
-                    <Card.Img src={JumbotronCard} />
-                    
-                    <Card.Img fluid src={RectangleTwo} style={{left:'600px', position:'absolute', width:'45%'}}/>
-                    
+                    <Card.Body className="d-flex justify-content-center flex-column">
+                        <Card.Img src={JumbotronCard} />
+                        
+                        <Card.Img fluid src={RectangleTwo} style={{left:'600px', position:'absolute', width:'45%'}}/>
+                    </Card.Body>
+
                     <Card.Body className="d-flex justify-content-center flex-column text-white ms-5 mt-2" style={{width:'50%', position:'absolute'}}>
                         <Card.Title className="fs-1 fw-bold mb-0">WAYSBUCKS</Card.Title>
                         <Card.Text className="fs-5 fw-light mt-3 mb-3">Things are changing, but we're still here for you</Card.Text>

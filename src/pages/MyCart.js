@@ -1,11 +1,31 @@
-import React from "react"
-import Coffee1 from "../img/menu-1.png"
+import React, { useState } from "react"
 import Bin1 from "../img/bin 1.png"
 import AttachImg from "../img/invoices 1.png"
 import { Button, Container, Image, Row, Col, Stack, Form } from "react-bootstrap"
-// import Navbar from '../components/Navbar'
+import PopOrder from "../components/PopOrder"
+
 
 function MyCart() {
+
+    const isLogin = JSON.parse(localStorage.getItem("DATA_LOGIN"))
+    const transaction = JSON.parse(
+      localStorage.getItem(`TRANSACTION_${isLogin[0].email}`)
+    )
+    const Products = JSON.parse(localStorage.getItem("PRODUCT_DATA"))
+  
+    const formatIDR = new Intl.NumberFormat(undefined, {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0,
+    })
+  
+    const handleDelete = (idCart) => {
+      const filterIdCart = transaction.filter((e) => e !== idCart)
+      console.log(filterIdCart)
+    }
+  
+    const [showPop, setShowPop] = useState(false)
+
     return(
         <>
         {/* <Navbar /> */}
@@ -17,32 +37,46 @@ function MyCart() {
                         <p className="fs-5 mb-0" style={{color:'#bd0707'}}>Review Your Order</p>
                     </Stack>
                     <hr style={{borderTop:'1px solid #974A4A'}}/>
-                    <Stack direction='horizontal' className="mb-3">
-                        <Image src={Coffee1} style={{width:"8%"}}/>
-                        <div className="ms-3">
-                            <p className="m-0 fw-bold" style={{color:'#bd0707'}}>Ice Coffee Palm Sugar</p>
-                            <p className="m-0" style={{color:'#bd0707'}}>Toping: Bill Berry Boba, Bubble Tea Gelatin</p>
-                        </div>
-                        <div className="ms-auto">
-                            <p className="m-0 fw-bold" style={{color:'#bd0707'}}>Rp.33.000</p>
-                            <div className="d-flex justify-content-end" >
-                                <Image src={Bin1} style={{width:"20%"}}/>
-                            </div>
-                        </div>
-                    </Stack>
-                    <Stack direction='horizontal' className="mb-3">
-                        <Image src={Coffee1} style={{width:"8%"}}/>
-                        <div className="ms-3">
-                            <p className="m-0 fw-bold" style={{color:'#bd0707'}}>Ice Coffee Palm Sugar</p>
-                            <p className="m-0" style={{color:'#bd0707'}}>Toping: Bill Berry Boba, Bubble Tea Gelatin</p>
-                        </div>
-                        <div className="ms-auto">
-                            <p className="m-0 fw-bold" style={{color:'#bd0707'}}>Rp.36.000</p>
-                            <div className="d-flex justify-content-end">
-                                <Image src={Bin1} style={{width:"20%"}}/>
-                            </div>
-                        </div>
-                    </Stack>
+                    {transaction.map((e) => {
+                        return (
+                        <>
+                        {isLogin[0].email === e.email ? (
+                            <>
+                            <Stack direction='horizontal' className="mb-3">
+                                {Products.map((product) => {
+                                return (
+                                <>
+                                    {product.productid === e.idProduct ? (
+                                        <>
+                                        <Image src={product.photo} style={{width:"8%"}}/>
+                                        <div className="ms-3">
+                                            <p className="m-0 fw-bold" style={{color:'#bd0707'}}>{product.productname}</p>
+                                            <p className="m-0" style={{color:'#bd0707'}}>Toping: {e.topingCheck.map((e) => {return <> {e},</>})}</p>
+                                        </div>
+                                        </>  
+                                        ) : (
+                                        <>
+                                        </>
+                                    )}
+                                </>
+                                )
+                                })}
+                                <div className="ms-auto">
+                                    <p className="m-0 fw-bold" style={{color:'#bd0707'}}>{formatIDR.format(e.totalPrice)}</p>
+                                    <div onClick={handleDelete(e.idCart)} style={{ cursor: "pointer" }} className="d-flex justify-content-end" >
+                                        <Image src={Bin1} style={{width:"20%"}}/>
+                                    </div>
+                                </div>
+                            </Stack>   
+                            </>
+                            ) : (
+                            <>
+                            </>
+                            )}
+                        </>
+                        )
+                    })}
+                    
                     <hr style={{borderTop:'1px solid #974A4A'}}/>
                     <Row>
                         <Col>
@@ -50,16 +84,16 @@ function MyCart() {
                             <Stack direction='vertical'>
                                 <Stack direction='horizontal'>
                                     <p>Subtotal</p>
-                                    <p className='ms-auto'>69.000</p>
+                                    <p className='ms-auto'>{formatIDR.format(transaction.map((e) => e.totalPrice).reduce((a, b) => a + b))}</p>
                                 </Stack>
                                 <Stack direction='horizontal'>
                                     <p>Qty</p>
-                                    <p className='ms-auto'>2</p>
+                                    <p className='ms-auto'>{transaction.length}</p>
                                 </Stack>
                                 <hr style={{borderTop:'1px solid #974A4A'}}/>
                                 <Stack direction='horizontal'>
                                     <p>Total</p>
-                                    <p className='ms-auto'>69.000</p>
+                                    <p className='ms-auto'>{formatIDR.format(transaction.map((e) => e.totalPrice).reduce((a, b) => a + b))}</p>
                                 </Stack>
                             </Stack>
                         </Col>
@@ -85,7 +119,10 @@ function MyCart() {
                         <Form.Control type="number" placeholder="Phone" className="mb-3" style={{borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}}/>
                         <Form.Control type="number" placeholder="Pos Code" className="mb-3" style={{borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}}/>
                         <Form.Control as="textarea" rows={4} placeholder="Address" className="mb-5" style={{borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}}/>
-                        <Button variant="primary" type="submit" style={{width:'100%', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}}>Pay</Button>
+
+                        <Button onClick={() => setShowPop(true)} variant="primary" type="submit" style={{width:'100%', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}}>Pay</Button>
+
+                        <PopOrder show={showPop} hide={() => {setShowPop(false)}}/>
                     </Form>
                 </Col>
             </Row>

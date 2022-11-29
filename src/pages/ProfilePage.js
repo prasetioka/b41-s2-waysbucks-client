@@ -16,9 +16,9 @@ function ProfilePage() {
                         <Card.Img src={FotoProfile} className="rounded-3" style={{width:'150px',height:'auto'}}/>
                             <Card.Body>
                                 <Card.Title style={{color:'#613D2B'}}>Full Name</Card.Title>
-                                <Card.Text className="mb-4">Babang Tamvan</Card.Text>
+                                <Card.Text className="mb-4">Mas-mas biasa</Card.Text>
                                 <Card.Title style={{color:'#613D2B'}}>Email</Card.Title>
-                                <Card.Text>babangtamvan@gmail.com</Card.Text>
+                                <Card.Text>biasa@gmail.com</Card.Text>
                             </Card.Body>
                     </div>
                 </Col>
