@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../context/userContext'
+
+// import { setAuthToken } from '../config/api'
 import Jumbotron from '../components/Jumbotron'
 import CardMenu from '../components/CardMenu'
 import IncomePage from '../pages/IncomePage'
-// import Navbar from '../components/Navbar'
 
 function HomePage() {
-    const isLogin = JSON.parse(localStorage.getItem("DATA_LOGIN"))
 
+    const [state] = useContext(UserContext);
+    
     return(
         <>
-            {/* <Navbar /> */}
-            { isLogin.length > 0 ? (
+            { state.isLogin ? (
                 <>
-                    {isLogin[0].status === "admin" ? (
+                    {state.user.role === "admin" ? (
                     <IncomePage />
                     ) : (
                         <>
@@ -21,7 +23,11 @@ function HomePage() {
                         </>
                     )}
                 </>
-            ) : (<><Jumbotron /></>)}
+            ) : (
+            <>
+            <Jumbotron />
+            </>
+            )}
         </>
     )
 }

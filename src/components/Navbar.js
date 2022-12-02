@@ -1,7 +1,9 @@
-import Logo from '../img/Header.png'
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../context/userContext'
 import { Link, useNavigate } from 'react-router-dom'
 import { Container, Nav, Navbar, Button, Image } from 'react-bootstrap'
+
+import Logo from '../img/Header.png'
 import Login from './Login'
 import Register from './Register'
 import NavbarUser from './NavbarUser'
@@ -11,28 +13,16 @@ function NavBar() {
     const [loginShow, setLoginShow] = React.useState(false)
     const [registerShow, setRegisterShow] = React.useState(false)
 
-    const UserData = localStorage.getItem("USER_DATA")
-    const DataUser = JSON.parse(UserData)
-    const array = []
+    const [state, dispatch] = useContext(UserContext);
 
-    const isLogin = JSON.parse(localStorage.getItem("DATA_LOGIN"))
+    const navigate = useNavigate()
 
-    const Navigate = useNavigate()
-
-    const LoginUser = (user) => {
-        DataUser.forEach((element) => {
-            if (user.email === element.email && user.password === element.password) {
-                array.push(element); localStorage.setItem("DATA_LOGIN", JSON.stringify(array))
-            } else {
-                console.log("can't login")
-            }
+    const logout = () => {
+        console.log(state)
+        dispatch({
+            type: "LOGOUT"
         })
-    }
-
-    const Logout = () => {
-        isLogin.pop()
-        localStorage.setItem("DATA_LOGIN", JSON.stringify(isLogin))
-        Navigate('/')
+        navigate("/")
     }
 
     return(
@@ -44,19 +34,20 @@ function NavBar() {
                     {/* Logo navbar end */}
 
                     <Nav className="d-flex justify-content-end gap-3">
-                        { isLogin.length > 0 ? (
+                        { state.isLogin ? (
                             <>
-                                { isLogin[0].status === "admin" ? (
-                                    <NavbarAdmin Logout={Logout} />
+                                { state.user.role === "admin" ? (
+                                    <NavbarAdmin Logout={logout} />
                                 ) : (
-                                    <NavbarUser Logout={Logout} />
+                                    <NavbarUser Logout={logout} />
                                 )}
                             </>
                         ) : (
                             <>
                             {/* Tombol login start */}
-                            <Button style={{width:'100px', color:'#bd0707', fontWeight:'bold', borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} onClick={() => setLoginShow(true)}>Login</Button>
-                            <Login show={loginShow} onHide={() => setLoginShow(false)} setLoginShow={setLoginShow} setRegisterShow={setRegisterShow} LoginUser={LoginUser}/>
+                            <Button 
+                            style={{width:'100px', color:'#bd0707', fontWeight:'bold', borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} onClick={() => setLoginShow(true)}>Login</Button>
+                            <Login show={loginShow} onHide={() => setLoginShow(false)} setLoginShow={setLoginShow} setRegisterShow={setRegisterShow} />
                             {/* Tombol login end */}
 
                             {/* Tombol register start */}
