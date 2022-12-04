@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Container, Image, Button, Row, Col } from 'react-bootstrap'
 import { useQuery } from 'react-query'
-import { API } from '../config/api'
-// import { UserContext } from '../context/userContext'
+import { API, setAuthToken } from '../config/api'
+import { UserContext } from '../context/userContext'
 
 import Checked from '../img/green-check.svg'
 
 function DetailProduct() {
     
-    // const [state] = useContext(UserContext);
+    const [state] = useContext(UserContext);
+    const navigate = useNavigate()
+    useEffect(() => {
+        // Redirect Auth
+        if (localStorage.token) {
+          setAuthToken(localStorage.token);
+        }
+    
+        if (state.isLogin === false) {
+          navigate('/');
+        }
+    },[state]);
     
     let { id } = useParams()
-    
-    // const navigate = useNavigate()
 
     let { data: product } = useQuery("productCache", async () => {
       const response = await API.get('/product/' + id)
@@ -46,44 +55,6 @@ function DetailProduct() {
             setTopingPrice(topingPrice - price)
         }
     }
-
-//   const totalPrice = product?.price + topingPrice
-//   console.log(totalPrice)
-
-//   const email = state.isLogin[0].email
-//   console.log(email)
-
-  // const idProduct = parseInt(productid)
-  // const idCart = new Date()
-
-  // const Transaction = { email, topingCheck, idProduct, totalPrice, idCart }
-  // const arrTransaction = []
-
-  // const DataTransaction = JSON.parse(
-  //   localStorage.getItem(`TRANSACTION_${isLogin[0].email}`)
-  // )
-
-  // const handleOnSubmit = (e) => {
-  //   e.preventDefault()
-  //   if (DataTransaction == null) {
-  //     arrTransaction.push(Transaction)
-  //     localStorage.setItem(
-  //       `TRANSACTION_${isLogin[0].email}`,
-  //       JSON.stringify(arrTransaction)
-  //     )
-  //   } else {
-  //     DataTransaction.map((e) => {
-  //       arrTransaction.push(e)
-  //     })
-  //     arrTransaction.push(Transaction)
-  //     localStorage.setItem(
-  //       `TRANSACTION_${isLogin[0].email}`,
-  //       JSON.stringify(arrTransaction)
-  //     )
-  //   }
-  //   navigate("/MyCart")
-  // }
-  // console.log(Transaction)
 
     return(
         <>
@@ -130,11 +101,9 @@ function DetailProduct() {
                             <p className="fs-5 fw-bold mb-0" style={{color:'#bd0707'}}>Total</p>
                             <p className="fs-5 fw-bold mb-0" style={{color:'#bd0707'}}>
                                 {formatIDR.format(product?.price + topingPrice)}
-                                </p>
+                            </p>
                         </div>
-                        <Button 
-                        // onClick={handleOnSubmit} 
-                        style={{width:'100%', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}}>Add Cart</Button>
+                        <Button style={{width:'100%', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}}>Add Cart</Button>
                     
                     </Col>
                 </Row>

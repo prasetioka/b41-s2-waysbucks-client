@@ -2,13 +2,14 @@ import React, { useState } from "react"
 import { Form, Row, Col, Image, Container, Button, Stack} from 'react-bootstrap'
 import { API } from '../config/api'
 import { useMutation } from 'react-query';
+import { useParams } from 'react-router-dom'
 
 import AttachIcon from '../img/attach-icon.png'
-import CardMenu from '../components/CardMenu'
-// import Navbar from '../components/Navbar'
+import ToppingList from '../components/ToppingList'
 
-function AddProductPage() {
-        
+function UpdateToppingPage() {
+
+        const { id } = useParams();
         const [preview, setPreview] = useState(null)
         const [form, setForm] = useState({
             title: "",
@@ -40,8 +41,8 @@ function AddProductPage() {
                 formData.set("image", form.image[0], form.image[0].name)
                 formData.set("qty", form.qty)
 
-                const response = await API.post("/product", formData);
-                console.log("data porduct berhasil ditambahkan", response.data.data);
+                const response = await API.patch("/topping/" + id, formData);
+                console.log("data topping berhasil diupdate", response.data.data);
 
             } catch (error) {
                 console.log(error);
@@ -55,7 +56,7 @@ function AddProductPage() {
                 <Row>
                     <Col className="d-flex flex-column justify-content-center">
                         <Form onSubmit={(e) => handleSubmit.mutate(e)}>
-                            <Form.Label className="fs-2 mb-4 fw-bold" style={{color:'#bd0707'}}>Add Product</Form.Label>
+                            <Form.Label className="fs-2 mb-4 fw-bold" style={{color:'#bd0707'}}>Update Topping</Form.Label>
 
                             <Form.Control type="text" placeholder="Name Product" name="title" onChange={handleChange} className="mb-4" style={{borderColor:'#bd0707', borderWidth:'3px', backgroundColor:'rgb(224,200,200,0.25)'}} />
 
@@ -79,15 +80,15 @@ function AddProductPage() {
                             </Form.Label>
 
                             <div className="d-flex justify-content-center mb-5">
-                                <Button variant="primary" type="submit" style={{width:'80%', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}}>Add Product</Button>
+                                <Button variant="primary" type="submit" style={{width:'80%', color:'white', fontWeight:'bold', borderColor:'#bd0707', backgroundColor:'#bd0707'}}>Update Product</Button>
                             </div>
                         </Form>
                     </Col>
                     <Col>
                         {preview && (
                             <div className="d-flex flex-row justify-content-center">
-                                <Image src={preview} style={{width:'70%'}}/>
-                            </div>
+                            <Image src={preview} style={{width:'70%'}}/>
+                        </div>
                         )}
                     </Col>
                 </Row>
@@ -95,11 +96,11 @@ function AddProductPage() {
             <Container>
                 <hr style={{borderTop:'3px solid #974A4A'}}/>  
             </Container>
-            
-            <CardMenu />
+
+            <ToppingList />
             </>
             
     )
 }
 
-export default AddProductPage
+export default UpdateToppingPage

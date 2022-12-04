@@ -9,8 +9,7 @@ function Jumbotron() {
             <Container className="d-flex mt-5 p-0">
                 <Card className="d-flex justify-content-center mx-5 border-0 ps-5" style={{width:'80%'}}>
                     <Card.Body className="d-flex justify-content-center flex-column">
-                        <Card.Img src={JumbotronCard} />
-                        
+                        <Card.Img src={JumbotronCard} /> 
                         <Card.Img fluid src={RectangleTwo} style={{left:'600px', position:'absolute', width:'45%'}}/>
                     </Card.Body>
 

@@ -8,8 +8,9 @@ import DetailProduct from './pages/DetailProduct'
 import ProfilePage from './pages/ProfilePage'
 import MyCart from './pages/MyCart'
 import AddProductPage from './pages/AddProductPage'
+import UpdateProductPage from './pages/UpdateProductPage'
 import AddTopingPage from './pages/AddTopingPage'
-import IncomePage from './pages/IncomePage'
+import UpdateToppingPage from './pages/UpdateToppingPage'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -73,9 +74,10 @@ function App() {
             <Routes>
                 <Route exact path='/' element={<HomePage />} />
                 <Route exact path='/AddProductPage' element={<AddProductPage />} />
+                <Route exact path='/UpdateProductPage/:id' element={<UpdateProductPage />} />
                 <Route exact path='/AddTopingPage' element={<AddTopingPage />} />
+                <Route exact path='/UpdateToppingPage/:id' element={<UpdateToppingPage />} />
                 <Route exact path='/DetailProduct/:id' element={<DetailProduct />} />
-                <Route exact path='/IncomePage' element={<IncomePage />} />
                 <Route exact path='/MyCart' element={<MyCart />} />
                 <Route exact path='/ProfilePage' element={<ProfilePage />} />
             </Routes>

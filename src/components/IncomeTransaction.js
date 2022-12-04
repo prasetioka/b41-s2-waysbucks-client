@@ -3,12 +3,12 @@ import { Container, Row, Table, Button, Image, Stack } from 'react-bootstrap'
 import SuccessImg from '../img/success.png'
 import CancelImg from '../img/cancel.png'
 
-function IncomePage() {
+function IncomeTransaction() {
     return(
         <>
         <Container className="mb-5 mt-5">
             <Row>
-                <p className="fs-3 mb-4 fw-bold" style={{color:'#bd0707'}}>Income Transaction</p>
+                <p className="fs-2 mb-4 fw-bold" style={{color:'#bd0707'}}>Income Transaction</p>
             </Row>
             <Row className="d-flex flex-row justify-content-center">
                 <Table bordered hover style={{textAlign:'center', width:'90%', borderColor:'#828282'}}>
@@ -84,4 +84,4 @@ function IncomePage() {
     )
 }
 
-export default IncomePage
+export default IncomeTransaction

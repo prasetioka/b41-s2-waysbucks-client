@@ -4,7 +4,7 @@ import { UserContext } from '../context/userContext'
 // import { setAuthToken } from '../config/api'
 import Jumbotron from '../components/Jumbotron'
 import CardMenu from '../components/CardMenu'
-import IncomePage from '../pages/IncomePage'
+import IncomeTransaction from '../components/IncomeTransaction'
 
 function HomePage() {
 
@@ -15,7 +15,10 @@ function HomePage() {
             { state.isLogin ? (
                 <>
                     {state.user.role === "admin" ? (
-                    <IncomePage />
+                        <>
+                            <IncomeTransaction />
+                            {/* <CardMenu /> */}
+                        </>
                     ) : (
                         <>
                             <Jumbotron />
