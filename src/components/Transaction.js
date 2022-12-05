@@ -27,7 +27,7 @@ function Transaction() {
         <Container className="d-flex flex-row p-3 rounded-4" style={{backgroundColor:'#F6DADA', border:'0'}}>
             
             <div className="d-flex flex-row gap-3">
-                    <Card.Img src={Coffee1} className="rounded-3" style={{width:'100px'}}/>
+                    <Card.Img src={Coffee1} className="rounded-3" style={{width:'200px'}}/>
                     <Card.Body className="d-flex flex-column justify-content-center">
                         <Card.Title style={{color:'#bd0707', fontSize:'20px', fontWeight:'bold', marginBottom:'0'}}>Ice Coffee Palm Sugar</Card.Title>
                         <Card.Text style={{color:'#bd0707', fontSize:'15px', marginBottom:'0'}}>Saturday, 5 March 2020</Card.Text>
