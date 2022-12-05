@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/userContext';
-import { useNavigate } from 'react-router-dom'
-import { Alert } from 'react-bootstrap'
+// import { useNavigate } from 'react-router-dom'
+
 import { useMutation } from 'react-query'
 import { API } from '../config/api'
 
@@ -22,11 +22,12 @@ function Login({show, onHide, setLoginShow, setRegisterShow}) {
     //     LoginUser(user)
     // }
 
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
     const [state, dispatch] = useContext(UserContext);
 
-    const [message, setMessage] = useState(null);
+    // const [message, setMessage] = useState(null);
+
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -73,20 +74,20 @@ function Login({show, onHide, setLoginShow, setRegisterShow}) {
             // } else {
             //   navigate('/');
             // }
-            const alert = (
-              <Alert variant="success" className="py-1">
-                Login success
-              </Alert>
-            );
-            setMessage(alert);
+            // const alert = (
+            //   <Alert variant="success" className="py-1">
+            //     Login success
+            //   </Alert>
+            // );
+            // setMessage(alert);
           }
         } catch (error) {
-          const alert = (
-            <Alert variant="danger" className="py-1">
-              Login failed
-            </Alert>
-          );
-          setMessage(alert);
+          // const alert = (
+          //   <Alert variant="danger" className="py-1">
+          //     Login failed
+          //   </Alert>
+          // );
+          // setMessage(alert);
           console.log(error);
         }
     });
@@ -94,7 +95,7 @@ function Login({show, onHide, setLoginShow, setRegisterShow}) {
     return (
         <Modal show={show} onHide={onHide} centered>
             <Container className="px-5 py-5">
-                {message && message}
+                {/* {message && message} */}
                 <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                     {/* Form email start */}
                     <Form.Group controlId="formBasicEmail">

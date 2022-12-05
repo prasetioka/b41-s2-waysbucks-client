@@ -5,7 +5,7 @@ import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom'
 
 import AttachIcon from '../img/attach-icon.png'
-import CardMenu from '../components/CardMenu'
+
 
 function AddProductPage() {
         

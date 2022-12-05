@@ -79,9 +79,6 @@ function App() {
                 <Route exact path='/UpdateProductPage/:id' element={<UpdateProductPage />} />
                 <Route exact path='/AddTopingPage' element={<AddTopingPage />} />
                 <Route exact path='/UpdateToppingPage/:id' element={<UpdateToppingPage />} />
-                <Route exact path='/DetailProduct/:id' element={<DetailProduct />} />
-                <Route exact path='/MyCart' element={<MyCart />} />
-                <Route exact path='/ProfilePage' element={<ProfilePage />} />
             </Routes>
             </>
             ) : (

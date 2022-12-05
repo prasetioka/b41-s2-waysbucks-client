@@ -31,7 +31,7 @@ function ProfilePage() {
 
     const handleSubmit = useMutation(async (e) => {
         try {
-            // e.preventDefault()
+            e.preventDefault()
 
             const formData = new FormData()
             formData.set("image", form.image[0], form.image[0].name)
