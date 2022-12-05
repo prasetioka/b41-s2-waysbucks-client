@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 
 import AttachIcon from '../img/attach-icon.png'
 
-
 function AddProductPage() {
         
         const navigate = useNavigate()

@@ -49,9 +49,9 @@ function DetailProduct() {
     const handleSubmit = useMutation(async (e) => {
       e.preventDefault()
   
-      const config = {
-        headers: { "Content-type": "application/json" },
-      }
+      // const config = {
+      //   headers: { "Content-type": "application/json" },
+      // }
   
       const data = {
         buyer_id: state.user.id,
@@ -65,7 +65,7 @@ function DetailProduct() {
       }
   
       const bodytrans = JSON.stringify(datatrans)
-      const response = await API.get("/my-order")
+      // const response = await API.get("/my-order")
     //   console.log("ini data response", response)
     //   console.log("ini data response status", response.data.data.status)
   
