@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/userContext'
 
-// import { setAuthToken } from '../config/api'
 import Jumbotron from '../components/Jumbotron'
 import CardMenu from '../components/CardMenu'
 import IncomeTransaction from '../components/IncomeTransaction'
+import ToppingList from '../components/ToppingList'
 
 function HomePage() {
 
     const [state] = useContext(UserContext);
-    
+
     return(
         <>
             { state.isLogin ? (
@@ -17,7 +17,8 @@ function HomePage() {
                     {state.user.role === "admin" ? (
                         <>
                             <IncomeTransaction />
-                            {/* <CardMenu /> */}
+                            <CardMenu />
+                            <ToppingList />
                         </>
                     ) : (
                         <>

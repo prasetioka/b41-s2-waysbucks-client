@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { UserContext } from './context/userContext'
 import { API, setAuthToken } from './config/api'
@@ -17,17 +17,17 @@ function App() {
   let navigate = useNavigate();
 
   const [state, dispatch] = useContext(UserContext);
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Redirect Auth
+    
     if (localStorage.token) {
       setAuthToken(localStorage.token);
     }
 
-    if (state.isLogin === false && !isLoading) {
+    if (state.isLogin === false) {
       navigate('/');
     }
+
   },[state]);
 
   const checkUser = async () => {
@@ -53,11 +53,11 @@ function App() {
         type: 'USER_SUCCESS',
         payload,
       });
-      console.log("ini data state", state)
-      setIsLoading(false)
+      // console.log("ini data state", state)
+      
     } catch (error) {
       console.log(error);
-      setIsLoading(false)
+   
     }
   };
 
@@ -67,8 +67,10 @@ function App() {
 
   return (
     
-        <>
-          {isLoading ? null : 
+      <>
+        { state.isLogin ? (
+            <>
+            {state.user.role === "admin" ? (
             <>
             <Navbar/>
             <Routes>
@@ -82,8 +84,28 @@ function App() {
                 <Route exact path='/ProfilePage' element={<ProfilePage />} />
             </Routes>
             </>
-          }
+            ) : (
+              <>
+                <Navbar/>
+                <Routes>
+                    <Route exact path='/' element={<HomePage />} />
+                    <Route exact path='/DetailProduct/:id' element={<DetailProduct />} />
+                    <Route exact path='/MyCart' element={<MyCart />} />
+                    <Route exact path='/ProfilePage' element={<ProfilePage />} />
+                </Routes>
+              </>
+            )}
+            </>
+        ) : (
+        <>
+          <Navbar/>
+            <Routes>
+                <Route exact path='/' element={<HomePage />} />
+            </Routes>    
         </>
+        )}
+      </>
+       
   )
 }
 

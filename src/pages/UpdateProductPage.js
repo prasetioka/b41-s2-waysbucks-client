@@ -5,7 +5,7 @@ import { useMutation } from 'react-query';
 import { useParams } from 'react-router-dom'
 
 import AttachIcon from '../img/attach-icon.png'
-import CardMenu from '../components/CardMenu'
+// import CardMenu from '../components/CardMenu'
 // import Navbar from '../components/Navbar'
 
 function UpdateProductPage() {
@@ -98,7 +98,7 @@ function UpdateProductPage() {
                 <hr style={{borderTop:'3px solid #974A4A'}}/>  
             </Container>
             
-            <CardMenu />
+            {/* <CardMenu /> */}
             </>
             
     )

@@ -2,13 +2,14 @@ import React, { useState } from "react"
 import { Form, Row, Col, Image, Container, Button, Stack} from 'react-bootstrap'
 import { API } from '../config/api'
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom'
 
 import AttachIcon from '../img/attach-icon.png'
 import CardMenu from '../components/CardMenu'
-// import Navbar from '../components/Navbar'
 
 function AddProductPage() {
         
+        const navigate = useNavigate()
         const [preview, setPreview] = useState(null)
         const [form, setForm] = useState({
             title: "",
@@ -32,7 +33,7 @@ function AddProductPage() {
 
         const handleSubmit = useMutation(async (e) => {
             try {
-                // e.preventDefault()
+                e.preventDefault()
 
                 const formData = new FormData()
                 formData.set("title", form.title)
@@ -42,6 +43,8 @@ function AddProductPage() {
 
                 const response = await API.post("/product", formData);
                 console.log("data porduct berhasil ditambahkan", response.data.data);
+
+                navigate("/")
 
             } catch (error) {
                 console.log(error);
@@ -96,7 +99,7 @@ function AddProductPage() {
                 <hr style={{borderTop:'3px solid #974A4A'}}/>  
             </Container>
             
-            <CardMenu />
+            {/* <CardMenu /> */}
             </>
             
     )

@@ -5,7 +5,7 @@ import { useMutation } from 'react-query';
 import { useParams } from 'react-router-dom'
 
 import AttachIcon from '../img/attach-icon.png'
-import ToppingList from '../components/ToppingList'
+// import ToppingList from '../components/ToppingList'
 
 function UpdateToppingPage() {
 
@@ -97,7 +97,7 @@ function UpdateToppingPage() {
                 <hr style={{borderTop:'3px solid #974A4A'}}/>  
             </Container>
 
-            <ToppingList />
+            {/* <ToppingList /> */}
             </>
             
     )

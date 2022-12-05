@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Alert, Button, Modal, Form, Container } from 'react-bootstrap';
-import { UserContext } from '../context/userContext';
+import { Button, Modal, Form, Container } from 'react-bootstrap';
+// import { UserContext } from '../context/userContext';
 import { useMutation } from 'react-query';
 import { API } from '../config/api';
 
@@ -9,7 +9,7 @@ function Register({show, onHide, setLoginShow, setRegisterShow}) {
         // const DataUser = localStorage.getItem("USER_DATA")
         // const UserData = JSON.parse(DataUser)
 
-        const [message, setMessage] = useState(null);
+        // const [message, setMessage] = useState(null);
         const [form, setForm] = useState({
             fullname: "",
             email: "",
@@ -50,7 +50,7 @@ function Register({show, onHide, setLoginShow, setRegisterShow}) {
                 //     Success
                 //   </Alert>
                 // );
-                setMessage(alert);
+                // setMessage(alert);
                 setForm({
                     fullname: "",
                     email: "",
@@ -59,20 +59,21 @@ function Register({show, onHide, setLoginShow, setRegisterShow}) {
                 setLoginShow(true)
                 setRegisterShow(false)
               } else {
-                const alert = (
-                  <Alert variant="danger" className="py-1">
-                    Failed
-                  </Alert>
-                );
-                setMessage(alert);
+                console.log(form)
+                // const alert = (
+                //   <Alert variant="danger" className="py-1">
+                //     Failed
+                //   </Alert>
+                // );
+                // setMessage(alert);
               }
             } catch (error) {
-              const alert = (
-                <Alert variant="danger" className="py-1">
-                  Failed
-                </Alert>
-              );
-              setMessage(alert);
+              // const alert = (
+              //   <Alert variant="danger" className="py-1">
+              //     Failed
+              //   </Alert>
+              // );
+              // setMessage(alert);
               console.log(error);
             }
           });
@@ -96,7 +97,7 @@ function Register({show, onHide, setLoginShow, setRegisterShow}) {
     return (
         <Modal show={show} onHide={onHide}  centered>
             <Container className="px-5 py-5">
-                {message && message}
+                {/* {message && message} */}
                 <Form onSubmit={(e) => handleSubmit.mutate(e)}>
                     
                     <Form.Group controlId="formBasicEmail">

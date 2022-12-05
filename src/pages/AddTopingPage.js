@@ -2,12 +2,15 @@ import React, { useState } from "react"
 import { Form, Row, Col, Image, Container, Button, Stack} from 'react-bootstrap'
 import { useMutation } from 'react-query'
 import { API } from '../config/api'
+import { useNavigate } from 'react-router-dom'
 
 import AttachIcon from '../img/attach-icon.png'
-import ToppingList from '../components/ToppingList'
+// import ToppingList from '../components/ToppingList'
 
 function AddTopingPage() {
-    const [preview, setPreview] = useState(null)
+
+        const navigate = { useNavigate }
+        const [preview, setPreview] = useState(null)
         const [form, setForm] = useState({
             title: "",
             price: "",
@@ -40,6 +43,8 @@ function AddTopingPage() {
 
                 const response = await API.post("/topping", formData);
                 console.log("data topping berhasil ditambahkan", response.data.data);
+
+                navigate("/")
 
             } catch (error) {
                 console.log(error);
@@ -93,7 +98,7 @@ function AddTopingPage() {
             <hr style={{borderTop:'3px solid #974A4A'}}/>  
         </Container>
 
-        <ToppingList />
+        {/* <ToppingList /> */}
         </>
         
     )
